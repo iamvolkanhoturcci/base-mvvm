@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion versions.compileSdk
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility versions.sourceCompat
+        targetCompatibility versions.targetCompat
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':domain')
+
+    api deps.support.appCompat
+    api deps.support.recyclerView
+    api deps.support.cardView
+    api deps.support.legacy
+    api deps.support.constraintLayout
+    api deps.support.designSupport
+
+    api deps.additional.glide
+    annotationProcessor deps.additional.glideCompiler
+
+    api deps.google.dagger
+    api deps.google.daggerSupport
+    annotationProcessor deps.google.daggerProcessor
+    annotationProcessor deps.google.daggerProcessorSupport
+
+    api deps.android.security
+    api deps.android.lifecycleExt
+    api deps.android.lifecycleCommon
+    annotationProcessor deps.android.lifecycleCompiler
+    api deps.android.roomRuntime
+    annotationProcessor deps.android.roomRuntime
+
+    api deps.permission.permissionDispatcher
+    annotationProcessor deps.permission.permissionDispatcherCompiler
+}

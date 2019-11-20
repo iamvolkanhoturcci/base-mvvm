@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <dimen name="default_item_divider_width">8dp</dimen>
+    <dimen name="default_item_radius">8dp</dimen>
+
+    <dimen name="defaultMargin">2dp</dimen>
+    <dimen name="miniMargin">4dp</dimen>
+    <dimen name="smallMargin">8dp</dimen>
+    <dimen name="mediumMargin">16dp</dimen>
+    <dimen name="largeMargin">24dp</dimen>
+    <dimen name="extraLargeMargin">32dp</dimen>
+    <dimen name="bigMargin">40dp</dimen>
+    <dimen name="customBigMargin">50dp</dimen>
+
+    <dimen name="extraMiniTextSize">10sp</dimen>
+    <dimen name="miniTextSize">11sp</dimen>
+    <dimen name="extraSmallTextSize">12sp</dimen>
+    <dimen name="smallTextSize">14sp</dimen>
+    <dimen name="mediumTextSize">16sp</dimen>
+    <dimen name="largeTextSize">18sp</dimen>
+    <dimen name="extraLargeTextSize">20sp</dimen>
+    <dimen name="xxLargeTextSize">22sp</dimen>
+    <dimen name="bigTextSize">24sp</dimen>
+</resources>

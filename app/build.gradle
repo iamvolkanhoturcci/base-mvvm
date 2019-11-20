@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        applicationId "com.volkanhotur.basemvvm"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "version"
+    productFlavors{
+        alfa {
+            applicationIdSuffix ".android"
+            resValue "string", "app_name", "BaseMVVM"
+            buildConfigField "String", "FLAVOR_TYPE", '"PROD"'
+        }
+
+        beta {
+            applicationIdSuffix ".android.test"
+            resValue "string", "app_name", "BaseMVVM Test"
+            buildConfigField "String", "FLAVOR_TYPE", '"TEST"'
+        }
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    compileOptions {
+        sourceCompatibility versions.sourceCompat
+        targetCompatibility versions.targetCompat
+    }
+
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':core')
+
+    implementation deps.additional.timber
+    implementation deps.additional.fragNavigation
+    implementation deps.additional.swipeLayout
+
+    implementation deps.google.dagger
+    implementation deps.google.daggerSupport
+    annotationProcessor deps.google.daggerProcessor
+    annotationProcessor deps.google.daggerProcessorSupport
+
+    //Other dependencies are located inside Core Module and Domain Module
+}

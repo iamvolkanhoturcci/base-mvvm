@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion versions.compileSdk
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility versions.sourceCompat
+        targetCompatibility versions.targetCompat
+    }
+}
+
+dependencies {
+    api deps.reactivex.rxJava
+    api deps.reactivex.rxAndroid
+    api deps.google.gson
+    api deps.square.retrofit
+    api deps.square.okhttp
+    api deps.square.okhttpLoggingInterceptor
+    api deps.square.gsonConverter
+    api deps.square.retrofitRxAdapter
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center">
+    <androidx.cardview.widget.CardView
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_centerInParent="true"
+        app:cardBackgroundColor="#626262"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="4dp"
+        app:cardUseCompatPadding="true">
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
