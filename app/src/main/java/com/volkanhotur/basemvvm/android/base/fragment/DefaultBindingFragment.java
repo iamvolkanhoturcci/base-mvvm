@@ -7,7 +7,7 @@ import androidx.databinding.ViewDataBinding;
 import com.core.BaseBindingFragment;
 import com.volkanhotur.basemvvm.android.base.exception.UnCaughtExceptionHandler;
 import com.volkanhotur.basemvvm.android.base.navigator.NavigatorView;
-import com.volkanhotur.basemvvm.android.utils.DefaultClickHandler;
+import com.volkanhotur.basemvvm.android.utils.impl.DefaultClickHandler;
 
 public abstract class DefaultBindingFragment<VDB extends ViewDataBinding> extends BaseBindingFragment<VDB> implements DefaultClickHandler {
 

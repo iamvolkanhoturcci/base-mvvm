@@ -8,8 +8,8 @@ import androidx.databinding.ViewDataBinding;
 
 import com.core.BaseBindingActivity;
 import com.volkanhotur.basemvvm.android.base.exception.UnCaughtExceptionHandler;
-import com.volkanhotur.basemvvm.android.utils.DefaultClickHandler;
-import com.volkanhotur.basemvvm.android.utils.LocaleHelper;
+import com.volkanhotur.basemvvm.android.utils.impl.DefaultClickHandler;
+import com.volkanhotur.basemvvm.android.utils.helper.LocaleHelper;
 
 
 public abstract class DefaultBindingActivity< VDB extends ViewDataBinding> extends BaseBindingActivity< VDB> implements DefaultClickHandler {

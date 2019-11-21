@@ -9,7 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.volkanhotur.basemvvm.android.di.AppComponent;
 import com.volkanhotur.basemvvm.android.di.DaggerAppComponent;
-import com.volkanhotur.basemvvm.android.utils.LocaleHelper;
+import com.volkanhotur.basemvvm.android.utils.helper.LocaleHelper;
 
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;

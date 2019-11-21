@@ -1,4 +1,4 @@
-package com.volkanhotur.basemvvm.android.utils;
+package com.volkanhotur.basemvvm.android.utils.impl;
 
 import android.app.Dialog;
 

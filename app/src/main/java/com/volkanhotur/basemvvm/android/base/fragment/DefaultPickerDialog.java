@@ -18,7 +18,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.volkanhotur.basemvvm.R;
 import com.volkanhotur.basemvvm.android.base.exception.UnCaughtExceptionHandler;
-import com.volkanhotur.basemvvm.android.utils.IPickerSelection;
+import com.volkanhotur.basemvvm.android.utils.impl.IPickerSelection;
 
 import java.util.List;
 import java.util.Objects;

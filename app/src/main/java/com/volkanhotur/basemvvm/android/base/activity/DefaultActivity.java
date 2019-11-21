@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModel;
 
 import com.core.BaseActivity;
 import com.volkanhotur.basemvvm.android.base.exception.UnCaughtExceptionHandler;
-import com.volkanhotur.basemvvm.android.utils.DefaultClickHandler;
-import com.volkanhotur.basemvvm.android.utils.LocaleHelper;
+import com.volkanhotur.basemvvm.android.utils.impl.DefaultClickHandler;
+import com.volkanhotur.basemvvm.android.utils.helper.LocaleHelper;
 
 public abstract class DefaultActivity<VM extends ViewModel, VDB extends ViewDataBinding> extends BaseActivity<VM, VDB> implements DefaultClickHandler {
 

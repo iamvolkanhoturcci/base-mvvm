@@ -10,7 +10,7 @@ import androidx.security.crypto.MasterKeys;
 import com.google.gson.GsonBuilder;
 import com.volkanhotur.basemvvm.android.di.builder.ActivityBuilder;
 import com.volkanhotur.basemvvm.android.di.builder.FragmentBuilder;
-import com.volkanhotur.basemvvm.android.utils.SharedHelper;
+import com.volkanhotur.basemvvm.android.utils.helper.SharedHelper;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;

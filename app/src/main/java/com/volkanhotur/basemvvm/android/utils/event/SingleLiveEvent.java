@@ -1,4 +1,4 @@
-package com.volkanhotur.basemvvm.android.utils;
+package com.volkanhotur.basemvvm.android.utils.event;
 
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.core.BaseFragment;
 import com.volkanhotur.basemvvm.android.base.exception.UnCaughtExceptionHandler;
 import com.volkanhotur.basemvvm.android.base.navigator.NavigatorView;
-import com.volkanhotur.basemvvm.android.utils.DefaultClickHandler;
+import com.volkanhotur.basemvvm.android.utils.impl.DefaultClickHandler;
 
 import timber.log.Timber;
 

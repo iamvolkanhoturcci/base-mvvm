@@ -1,7 +1,6 @@
 package com.volkanhotur.basemvvm.android.utils;
 
 import android.annotation.SuppressLint;
-import android.text.format.DateUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,27 +10,15 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
-public class DateHelper {
+public final class DateUtils {
 
     public static final String dateFormat1 = "dd-MM-yyyy HH:mm:ss";
 
-    private static DateHelper instance;
     private static ThreadLocal<SimpleDateFormat> utcIsoDateFormatter = new ThreadLocal<>();
 
-    private DateHelper() { }
+    private DateUtils() { }
 
-    public static DateHelper getInstance(){
-
-        if(instance == null){
-            synchronized (DateHelper.class) {
-                instance = new DateHelper();
-            }
-        }
-
-        return instance;
-    }
-
-    public String findDate(String dateFormat){
+    public static String findDate(String dateFormat){
         try {
             @SuppressLint("SimpleDateFormat")
             SimpleDateFormat sdf = new SimpleDateFormat(dateFormat, Locale.US);
@@ -47,11 +34,11 @@ public class DateHelper {
         return null;
     }
 
-    public boolean isToday(Date date) {
-        return DateUtils.isToday(date.getTime());
+    public static boolean isToday(Date date) {
+        return android.text.format.DateUtils.isToday(date.getTime());
     }
 
-    private SimpleDateFormat utcIsoDateFormatter() {
+    private static SimpleDateFormat utcIsoDateFormatter() {
         if (utcIsoDateFormatter.get() == null) {
             TimeZone utcTimezone = TimeZone.getTimeZone("GMT");
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
@@ -61,7 +48,7 @@ public class DateHelper {
         return utcIsoDateFormatter.get();
     }
 
-    private Date withObject(Object value) {
+    private static Date withObject(Object value) {
         if (value == null) return null;
         if (value instanceof Date) return (Date)value;
 
@@ -75,7 +62,7 @@ public class DateHelper {
         }
     }
 
-    private boolean isDateComponentEqualToDate(Date date1, Date date2) {
+    private static boolean isDateComponentEqualToDate(Date date1, Date date2) {
         Calendar calendar = Calendar.getInstance();
 
         calendar.setTime(date1);
@@ -89,10 +76,5 @@ public class DateHelper {
         int day2 = calendar.get(Calendar.DATE);
 
         return year1 == year2 && month1 == month2 && day1 == day2;
-    }
-
-    @Override
-    public Object clone() throws CloneNotSupportedException{
-        throw new CloneNotSupportedException();
     }
 }
