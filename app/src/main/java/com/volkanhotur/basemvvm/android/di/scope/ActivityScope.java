@@ -5,6 +5,9 @@ import java.lang.annotation.RetentionPolicy;
 
 import javax.inject.Scope;
 
+/**
+ * @author volkanhotur
+ */
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ActivityScope {

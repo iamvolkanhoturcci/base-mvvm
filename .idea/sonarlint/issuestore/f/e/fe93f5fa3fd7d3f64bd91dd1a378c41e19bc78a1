@@ -1,0 +1,4 @@
+
+€"squid:ClassVariableVisibilityCheck"RMake params a static final constant or non-public and provide accessors if needed.(¶–ÂÜ
+…squid:S1319"nThe type of the "params" object should be an interface such as "Map" rather than the implementation "HashMap".(¶–ÂÜ
+‡"squid:ClassVariableVisibilityCheck"YMake apiDataSource a static final constant or non-public and provide accessors if needed.(å…±î

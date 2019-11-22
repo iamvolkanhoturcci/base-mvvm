@@ -1,0 +1,4 @@
+
+^squid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(Â§±¦
+fsquid:S00119"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(Î¦›ãøÿÿÿÿ
+ƒ"squid:ClassVariableVisibilityCheck"UMake navigator a static final constant or non-public and provide accessors if needed.(ÛÍ§õ

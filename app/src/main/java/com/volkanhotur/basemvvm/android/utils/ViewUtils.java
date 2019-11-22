@@ -10,6 +10,10 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 
+/**
+ * @author volkanhotur
+ */
+
 public final class ViewUtils {
 
     private ViewUtils() { }

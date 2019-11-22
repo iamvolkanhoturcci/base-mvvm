@@ -4,6 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
+/**
+ * @author volkanhotur
+ */
+
 public final class AppUtils {
 
     private AppUtils() { }

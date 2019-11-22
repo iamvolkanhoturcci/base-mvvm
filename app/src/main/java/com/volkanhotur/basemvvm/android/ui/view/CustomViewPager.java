@@ -10,6 +10,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import java.lang.reflect.Field;
 
+/**
+ * @author volkanhotur
+ */
+
 public class CustomViewPager extends ViewPager {
     private FixedSpeedScroller mScroller = null;
 
@@ -23,10 +27,6 @@ public class CustomViewPager extends ViewPager {
         init();
     }
 
-    /*
-     * Override the Scroller instance with our own class so we can change the
-     * duration
-     */
     private void init() {
         try {
             Class<?> viewpager = ViewPager.class;
@@ -38,9 +38,6 @@ public class CustomViewPager extends ViewPager {
         }
     }
 
-    /*
-     * Set the factor by which the duration will change
-     */
     public void setScrollDuration(int duration) {
         mScroller.setScrollDuration(duration);
     }

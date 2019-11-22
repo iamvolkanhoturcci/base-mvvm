@@ -13,6 +13,10 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.AndroidSupportInjection;
 import dagger.android.support.HasSupportFragmentInjector;
 
+/**
+ * @author volkanhotur
+ */
+
 public class DaggerBottomSheetFragment extends BottomSheetDialogFragment implements HasSupportFragmentInjector {
 
     @Inject

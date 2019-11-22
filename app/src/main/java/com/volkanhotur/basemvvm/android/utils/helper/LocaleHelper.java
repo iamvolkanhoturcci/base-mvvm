@@ -11,6 +11,10 @@ import android.telephony.TelephonyManager;
 
 import java.util.Locale;
 
+/**
+ * @author volkanhotur
+ */
+
 public class LocaleHelper {
 
 	private static final String SELECTED_LANGUAGE = "Locale.Helper.Selected.Language";
@@ -81,11 +85,11 @@ public class LocaleHelper {
 
 	public static String getLocaleCountryCode(Context context){
 		TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-		String simCountryISO = telephonyManager.getSimCountryIso();
-		if (simCountryISO == null || simCountryISO.isEmpty()) {
+		String simCountryIso = telephonyManager.getSimCountryIso();
+		if (simCountryIso == null || simCountryIso.isEmpty()) {
 			return "";
 		}
 
-		return simCountryISO;
+		return simCountryIso;
 	}
 }

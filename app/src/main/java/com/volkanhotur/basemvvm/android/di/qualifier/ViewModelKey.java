@@ -10,6 +10,10 @@ import java.lang.annotation.Target;
 
 import dagger.MapKey;
 
+/**
+ * @author volkanhotur
+ */
+
 @Documented
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

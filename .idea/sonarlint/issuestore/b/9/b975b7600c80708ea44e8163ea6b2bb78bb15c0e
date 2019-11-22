@@ -1,0 +1,6 @@
+
+ksquid:S00112ª"FDefine and throw a dedicated exception instead of using a generic one.(€Ï™¤ùÿÿÿÿ8ª«Ç‘é-
+Csquid:S1452É"&Remove usage of generic wildcard type.(¯ü±±úÿÿÿÿ
+£%squid:RedundantThrowsDeclarationCheckŸ"eRemove the declaration of thrown exception 'java.lang.RuntimeException' which is a runtime exception.(Ê¾ñäþÿÿÿÿ8ÄòÇ‘é-
+ksquid:S00112Ÿ"FDefine and throw a dedicated exception instead of using a generic one.(Ê¾ñäþÿÿÿÿ8ÄòÇ‘é-
+ksquid:S00112¢"FDefine and throw a dedicated exception instead of using a generic one.(€Ï™¤ùÿÿÿÿ8¡ÓÈ‘é-

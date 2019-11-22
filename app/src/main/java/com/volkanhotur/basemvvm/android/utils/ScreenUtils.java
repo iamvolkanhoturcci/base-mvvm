@@ -4,6 +4,10 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
+/**
+ * @author volkanhotur
+ */
+
 public final class ScreenUtils {
 
     private ScreenUtils() { }

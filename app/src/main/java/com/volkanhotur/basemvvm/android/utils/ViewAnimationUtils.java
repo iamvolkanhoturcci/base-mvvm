@@ -4,7 +4,12 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 
+/**
+ * @author volkanhotur
+ */
+
 public final class ViewAnimationUtils {
+
     private ViewAnimationUtils() { }
 
     public static void scaleAnimateView(View view) {

@@ -1,11 +1,10 @@
 package com.volkanhotur.basemvvm.android.ui.main;
 
-import androidx.databinding.Bindable;
 import androidx.lifecycle.MutableLiveData;
 
-import com.core.BaseView;
-import com.core.viewmodel.BaseViewModel;
-import com.volkanhotur.basemvvm.android.data.domain.DefaultObserver;
+import com.core.abstractbase.AbstractView;
+import com.core.viewmodel.AbstractViewModel;
+import com.volkanhotur.basemvvm.android.data.domain.BaseObserver;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,10 +17,14 @@ import javax.inject.Inject;
 import io.reactivex.disposables.CompositeDisposable;
 import okhttp3.ResponseBody;
 
-public class MainViewModel extends BaseViewModel {
+/**
+ * @author volkanhotur
+ */
+
+public class MainViewModel extends AbstractViewModel {
 
     @Inject
-    InformationUseCase informationUseCase;
+    InformationBaseUseCase informationUseCase;
 
     private MutableLiveData<String> information = new MutableLiveData<>();
 
@@ -34,8 +37,8 @@ public class MainViewModel extends BaseViewModel {
         return information;
     }
 
-    public void getInformationFromRemote(BaseView baseView){
-        informationUseCase.execute(new DefaultObserver<ResponseBody>(baseView) {
+    public void getInformationFromRemote(AbstractView abstractView){
+        informationUseCase.execute(new BaseObserver<ResponseBody>(abstractView) {
             @Override
             public void onNext(ResponseBody responseBody) {
                 super.onNext(responseBody);

@@ -8,8 +8,8 @@ import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKeys;
 
 import com.google.gson.GsonBuilder;
-import com.volkanhotur.basemvvm.android.di.builder.ActivityBuilder;
-import com.volkanhotur.basemvvm.android.di.builder.FragmentBuilder;
+import com.volkanhotur.basemvvm.android.di.builder.BaseActivityBuilder;
+import com.volkanhotur.basemvvm.android.di.builder.BaseFragmentBuilder;
 import com.volkanhotur.basemvvm.android.utils.helper.SharedHelper;
 
 import java.io.IOException;
@@ -21,7 +21,11 @@ import dagger.Module;
 import dagger.Provides;
 import io.reactivex.disposables.CompositeDisposable;
 
-@Module(includes = {ApiModule.class, ActivityBuilder.class, FragmentBuilder.class, ViewModelModule.class})
+/**
+ * @author volkanhotur
+ */
+
+@Module(includes = {ApiModule.class, BaseActivityBuilder.class, BaseFragmentBuilder.class, ViewModelModule.class})
 public class AppModule {
 
     @Provides

@@ -5,6 +5,10 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+/**
+ * @author volkanhotur
+ */
+
 public interface NavigatorView {
 
     void pushFragment(@NonNull Fragment fragment);

@@ -7,9 +7,7 @@ import com.volkanhotur.basemvvm.android.data.repository.Api;
 import com.volkanhotur.basemvvm.android.data.repository.ApiDataFactory;
 import com.volkanhotur.basemvvm.android.data.repository.ApiDataSource;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Named;
@@ -23,6 +21,10 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+/**
+ * @author volkanhotur
+ */
 
 @Module
 public class ApiModule {
@@ -40,19 +42,6 @@ public class ApiModule {
         gsonBuilder.registerTypeAdapter(Date.class, dateJsonDeserializer);
 
         return gsonBuilder;
-    }
-
-    @Singleton
-    @Provides
-    JsonDeserializer<Date> provideJsonDeserializer() {
-        return (json, typeOfT, context) -> {
-            String s = json.getAsJsonPrimitive().getAsString();
-            long l = Long.parseLong(s);
-            Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-            calendar.setTimeInMillis(l * 1000);
-
-            return calendar.getTime();
-        };
     }
 
     @Singleton

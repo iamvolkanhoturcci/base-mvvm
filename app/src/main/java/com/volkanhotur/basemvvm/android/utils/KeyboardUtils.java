@@ -1,15 +1,13 @@
 package com.volkanhotur.basemvvm.android.utils;
 
 import android.app.Activity;
-import android.graphics.Rect;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 
-public final class KeyboardUtils {
+/**
+ * @author volkanhotur
+ */
 
-    private final String TAG = KeyboardUtils.class.getSimpleName();
+public final class KeyboardUtils {
 
     private KeyboardUtils() { }
 

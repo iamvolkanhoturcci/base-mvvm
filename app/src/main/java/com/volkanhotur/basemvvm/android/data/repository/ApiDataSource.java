@@ -1,6 +1,6 @@
 package com.volkanhotur.basemvvm.android.data.repository;
 
-import com.domain.remote.exception.ApiException;
+import com.domain.remote.exception.AbstractApiException;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,6 +11,10 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.Response;
+
+/**
+ * @author volkanhotur
+ */
 
 public class ApiDataSource implements Repository {
 
@@ -54,10 +58,10 @@ public class ApiDataSource implements Repository {
                     e.printStackTrace();
                 }
 
-                return Observable.error(new ApiException(errorMessage, "", requestCode));
+                return Observable.error(new AbstractApiException(errorMessage, "", requestCode));
             }
 
-            return Observable.error(new ApiException("", "", requestCode));
+            return Observable.error(new AbstractApiException("", "", requestCode));
         }
 
         return Observable.just(Objects.requireNonNull(response.body()));

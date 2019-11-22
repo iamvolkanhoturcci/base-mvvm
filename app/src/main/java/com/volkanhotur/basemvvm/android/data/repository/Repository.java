@@ -6,6 +6,10 @@ import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.Response;
 
+/**
+ * @author volkanhotur
+ */
+
 public interface Repository {
 
     Observable<ResponseBody> postRequest(String url, HashMap<String, Object> params, HashMap<String, Object> headers);

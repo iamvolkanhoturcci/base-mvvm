@@ -8,6 +8,10 @@ import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.Response;
 
+/**
+ * @author volkanhotur
+ */
+
 public class ApiDataFactory implements Repository {
 
     private ApiDataSource source;

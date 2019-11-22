@@ -2,19 +2,19 @@ package com.volkanhotur.basemvvm.android.utils;
 
 import android.annotation.SuppressLint;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
-import java.util.TimeZone;
+
+/**
+ * @author volkanhotur
+ */
 
 public final class DateUtils {
 
-    public static final String dateFormat1 = "dd-MM-yyyy HH:mm:ss";
-
-    private static ThreadLocal<SimpleDateFormat> utcIsoDateFormatter = new ThreadLocal<>();
+    public static final String DATE_FORMAT = "dd-MM-yyyy HH:mm:ss";
 
     private DateUtils() { }
 
@@ -36,30 +36,6 @@ public final class DateUtils {
 
     public static boolean isToday(Date date) {
         return android.text.format.DateUtils.isToday(date.getTime());
-    }
-
-    private static SimpleDateFormat utcIsoDateFormatter() {
-        if (utcIsoDateFormatter.get() == null) {
-            TimeZone utcTimezone = TimeZone.getTimeZone("GMT");
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
-            format.setTimeZone(utcTimezone);
-            utcIsoDateFormatter.set(format);
-        }
-        return utcIsoDateFormatter.get();
-    }
-
-    private static Date withObject(Object value) {
-        if (value == null) return null;
-        if (value instanceof Date) return (Date)value;
-
-        else {
-            try {
-                return utcIsoDateFormatter().parse(value.toString());
-            } catch (ParseException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
     }
 
     private static boolean isDateComponentEqualToDate(Date date1, Date date2) {

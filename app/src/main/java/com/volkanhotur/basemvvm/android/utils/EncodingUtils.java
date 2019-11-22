@@ -9,7 +9,13 @@ import org.json.JSONObject;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
+/**
+ * @author volkanhotur
+ */
+
 public final class EncodingUtils {
+
+    private EncodingUtils() { }
 
     public static String getBase64String(Map<String, Object> request){
         Gson gson = new Gson();
@@ -18,7 +24,7 @@ public final class EncodingUtils {
         return Base64.encodeToString(jsonString.getBytes(StandardCharsets.UTF_8), Base64.DEFAULT);
     }
 
-    public static String getJSONFromBase64String(String data){
+    public static String getJsonFromBase64String(String data){
         byte[] decodedString = Base64.decode(data, Base64.DEFAULT);
 
         return new String(decodedString, StandardCharsets.UTF_8);

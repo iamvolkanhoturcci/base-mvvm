@@ -4,10 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.volkanhotur.basemvvm.R;
-import com.volkanhotur.basemvvm.android.base.activity.DefaultActivity;
+import com.volkanhotur.basemvvm.android.base.activity.BaseActivity;
 import com.volkanhotur.basemvvm.databinding.ActivityMainBinding;
 
-public class MainActivity extends DefaultActivity<MainViewModel, ActivityMainBinding> {
+/**
+ * @author volkanhotur
+ */
+
+public class MainActivity extends BaseActivity<MainViewModel, ActivityMainBinding> {
 
     @Override
     protected Class<MainViewModel> getViewModelClass() {
@@ -29,9 +33,5 @@ public class MainActivity extends DefaultActivity<MainViewModel, ActivityMainBin
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-
-        }
-    }
+    public void onClick(View view) { }
 }

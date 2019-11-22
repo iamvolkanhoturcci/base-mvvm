@@ -1,0 +1,5 @@
+
+˜squid:S1186£"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(±Ë‡*
+Osquid:S2589º"7Remove this expression which always evaluates to "true"(®ÞˆŽ
+›%squid:RedundantThrowsDeclarationChecks"jRemove the declaration of thrown exception 'java.lang.IllegalStateException' which is a runtime exception.(ÙðÔË
+žsquid:S1186¯"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¿ÞÄªùÿÿÿÿ

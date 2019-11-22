@@ -7,6 +7,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.Registry;
 import com.bumptech.glide.module.LibraryGlideModule;
 
+/**
+ * @author volkanhotur
+ */
+
 @com.bumptech.glide.annotation.GlideModule
 public class GlideModule extends LibraryGlideModule {
 

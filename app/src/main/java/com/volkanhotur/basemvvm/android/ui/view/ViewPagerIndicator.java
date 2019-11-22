@@ -7,7 +7,6 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.widget.RadioGroup;
 
@@ -16,6 +15,14 @@ import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import com.volkanhotur.basemvvm.R;
+
+import java.util.Objects;
+
+import timber.log.Timber;
+
+/**
+ * @author volkanhotur
+ */
 
 public class ViewPagerIndicator  extends RadioGroup {
     private static final String TAG = "ViewPagerIndicator";
@@ -71,7 +78,7 @@ public class ViewPagerIndicator  extends RadioGroup {
                 mButtonDrawable = ContextCompat.getDrawable(getContext(), drawableResId);
             }
         } catch(Exception e) {
-            Log.e(TAG, getMessageFor(e));
+            Timber.tag(TAG).e(getMessageFor(e));
         }
     }
 
@@ -97,7 +104,7 @@ public class ViewPagerIndicator  extends RadioGroup {
             d.addState(new int[]{android.R.attr.state_checked}, selectedDrawable);
             d.addState(new int[]{}, unselectedDrawable);
         } catch(Exception e) {
-            Log.e(TAG, getMessageFor(e));
+            Timber.tag(TAG).e(getMessageFor(e));
         }
 
         return d;
@@ -109,9 +116,13 @@ public class ViewPagerIndicator  extends RadioGroup {
      * @throws IllegalStateException if no adapter has been provided to the viewPager
      */
     public void initWithViewPager(ViewPager viewPager) throws IllegalStateException {
-        if ( viewPager == null ) return;
+        if (viewPager == null ) {
+            return;
+        }
 
-        if ( viewPager.getAdapter() == null ) throw new IllegalStateException("ViewPager has no adapter set.");
+        if (viewPager.getAdapter() == null ) {
+            throw new IllegalStateException("ViewPager has no adapter set.");
+        }
 
         try {
             mViewPager = viewPager;
@@ -120,7 +131,7 @@ public class ViewPagerIndicator  extends RadioGroup {
 
             addViews();
         } catch(Exception e) {
-            Log.e(TAG, getMessageFor(e));
+            Timber.tag(TAG).e(getMessageFor(e));
         }
     }
 
@@ -129,11 +140,13 @@ public class ViewPagerIndicator  extends RadioGroup {
      */
     private void addViews() {
         try {
-            if ( mViewPager == null || mViewPager.getAdapter() == null || mViewPager.getAdapter().getCount() == 0 ) return;
+            if (mViewPager == null || mViewPager.getAdapter() == null || mViewPager.getAdapter().getCount() == 0 ) {
+                return;
+            }
             removeAllViews();
             AppCompatRadioButton firstItem = new AppCompatRadioButton(getContext());
             firstItem.setText("");
-            firstItem.setButtonDrawable(mButtonDrawable.getConstantState().newDrawable());
+            firstItem.setButtonDrawable(Objects.requireNonNull(mButtonDrawable.getConstantState()).newDrawable());
             ViewPagerIndicator.LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             firstItem.setLayoutParams(params);
             firstItem.setClickable(false);
@@ -150,7 +163,7 @@ public class ViewPagerIndicator  extends RadioGroup {
             }
             check(firstItem.getId());
         } catch(Exception e) {
-            Log.e(TAG, getMessageFor(e));
+            Timber.tag(TAG).e(getMessageFor(e));
         }
     }
 
@@ -163,7 +176,7 @@ public class ViewPagerIndicator  extends RadioGroup {
             try {
                 ViewPagerIndicator.this.check(ViewPagerIndicator.this.getChildAt(position).getId());
             } catch(Exception e) {
-                Log.e(TAG, getMessageFor(e));
+                Timber.tag(TAG).e(getMessageFor(e));
             }
         }
 
@@ -177,8 +190,10 @@ public class ViewPagerIndicator  extends RadioGroup {
      * @return a String describing the Exception
      */
     private String getMessageFor(Exception e) {
-        if ( e == null ) return TAG + ": No Message.";
+        if ( e == null ) {
+            return TAG + ": No Message.";
+        }
 
-        return e != null && e.getMessage() != null ? e.getMessage() : e.getClass().getName() + ": No Message.";
+        return e.getMessage() != null ? e.getMessage() : e.getClass().getName() + ": No Message.";
     }
 }

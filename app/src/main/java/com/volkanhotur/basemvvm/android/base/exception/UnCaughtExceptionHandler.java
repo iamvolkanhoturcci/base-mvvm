@@ -2,6 +2,10 @@ package com.volkanhotur.basemvvm.android.base.exception;
 
 import android.app.Activity;
 
+/**
+ * @author volkanhotur
+ */
+
 public class UnCaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
     private Activity activity;
 
