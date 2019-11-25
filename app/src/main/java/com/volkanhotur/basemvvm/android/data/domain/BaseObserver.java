@@ -25,8 +25,9 @@ public abstract class BaseObserver<T> extends AbstractObserver<T> {
     @Override
     protected void onStart() {
         super.onStart();
-        if (view != null && view.isLoadingBarEnabled())
+        if (view != null && view.isLoadingBarEnabled()) {
             view.showLoadingBar();
+        }
     }
 
     @Override
@@ -37,16 +38,18 @@ public abstract class BaseObserver<T> extends AbstractObserver<T> {
     @Override
     public void onComplete() {
         super.onComplete();
-        if (view != null && view.isLoadingBarEnabled())
+        if (view != null && view.isLoadingBarEnabled()) {
             view.hideLoadingBar();
+        }
     }
 
     @Override
     public void onError(Throwable exception) {
         super.onError(exception);
 
-        if (view != null && view.isLoadingBarEnabled())
+        if (view != null && view.isLoadingBarEnabled()) {
             view.hideLoadingBar();
+        }
 
         if (view != null) {
             if(exception instanceof AbstractApiException){

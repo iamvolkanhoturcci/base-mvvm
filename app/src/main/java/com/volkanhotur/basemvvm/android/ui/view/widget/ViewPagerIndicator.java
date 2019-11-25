@@ -1,4 +1,4 @@
-package com.volkanhotur.basemvvm.android.ui.view;
+package com.volkanhotur.basemvvm.android.ui.view.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;

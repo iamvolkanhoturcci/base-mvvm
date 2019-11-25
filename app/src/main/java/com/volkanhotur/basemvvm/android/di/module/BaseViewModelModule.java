@@ -16,7 +16,7 @@ import dagger.multibindings.IntoMap;
  */
 
 @Module
-public abstract class ViewModelModule {
+public abstract class BaseViewModelModule {
 
     @Binds
     abstract ViewModelProvider.Factory bindViewModelFactory(ViewModelFactory factory);

@@ -25,7 +25,7 @@ import io.reactivex.disposables.CompositeDisposable;
  * @author volkanhotur
  */
 
-@Module(includes = {ApiModule.class, BaseActivityBuilder.class, BaseFragmentBuilder.class, ViewModelModule.class})
+@Module(includes = {ApiModule.class, BaseActivityBuilder.class, BaseFragmentBuilder.class, BaseViewModelModule.class})
 public class AppModule {
 
     @Provides

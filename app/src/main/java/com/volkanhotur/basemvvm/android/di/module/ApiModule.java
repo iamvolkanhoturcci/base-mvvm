@@ -7,7 +7,9 @@ import com.volkanhotur.basemvvm.android.data.repository.Api;
 import com.volkanhotur.basemvvm.android.data.repository.ApiDataFactory;
 import com.volkanhotur.basemvvm.android.data.repository.ApiDataSource;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Named;
@@ -54,6 +56,19 @@ public class ApiModule {
     @Provides
     RxJava2CallAdapterFactory provideRxConverterFactory() {
         return RxJava2CallAdapterFactory.create();
+    }
+
+    @Singleton
+    @Provides
+    JsonDeserializer<Date> provideJsonDeserializer() {
+        return (json, typeOf, context) -> {
+            String s = json.getAsJsonPrimitive().getAsString();
+            long l = Long.parseLong(s);
+            Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+            calendar.setTimeInMillis(l * 1000);
+
+            return calendar.getTime();
+        };
     }
 
     @Singleton

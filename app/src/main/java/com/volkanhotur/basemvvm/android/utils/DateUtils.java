@@ -14,8 +14,6 @@ import java.util.Locale;
 
 public final class DateUtils {
 
-    public static final String DATE_FORMAT = "dd-MM-yyyy HH:mm:ss";
-
     private DateUtils() { }
 
     public static String findDate(String dateFormat){

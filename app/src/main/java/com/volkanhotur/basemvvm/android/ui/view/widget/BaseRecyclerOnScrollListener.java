@@ -1,4 +1,4 @@
-package com.volkanhotur.basemvvm.android.ui.view;
+package com.volkanhotur.basemvvm.android.ui.view.widget;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
