@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 android {
@@ -59,6 +60,7 @@ dependencies {
     implementation deps.additional.timber
     implementation deps.additional.fragNavigation
     implementation deps.additional.swipeLayout
+    implementation deps.additional.alerty
 
     implementation deps.google.dagger
     implementation deps.google.daggerSupport
