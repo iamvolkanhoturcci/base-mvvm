@@ -53,7 +53,9 @@ public class ApiDataSource implements Repository {
                 String errorMessage = "";
 
                 try {
-                    if (response.errorBody() != null) errorMessage = response.errorBody().string();
+                    if (response.errorBody() != null) {
+                        errorMessage = response.errorBody().string();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

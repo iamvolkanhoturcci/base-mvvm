@@ -1,4 +1,4 @@
-package com.volkanhotur.basemvvm.android.ui.main;
+package com.volkanhotur.basemvvm.android.ui.screen.main;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -24,7 +24,7 @@ import okhttp3.ResponseBody;
 public class MainViewModel extends AbstractViewModel {
 
     @Inject
-    InformationBaseUseCase informationUseCase;
+    InformationUseCase informationUseCase;
 
     private MutableLiveData<String> information = new MutableLiveData<>();
 

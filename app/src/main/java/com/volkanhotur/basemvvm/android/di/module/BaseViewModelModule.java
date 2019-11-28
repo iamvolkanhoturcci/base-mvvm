@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.core.viewmodel.factory.ViewModelFactory;
 import com.volkanhotur.basemvvm.android.di.qualifier.ViewModelKey;
-import com.volkanhotur.basemvvm.android.ui.main.MainViewModel;
+import com.volkanhotur.basemvvm.android.ui.screen.main.MainViewModel;
 
 import dagger.Binds;
 import dagger.Module;

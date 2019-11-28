@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.volkanhotur.basemvvm.android.ui.main.MainViewModel" />
+            type="com.volkanhotur.basemvvm.android.ui.screen.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/mediumMargin"
-        tools:context=".android.ui.main.MainActivity">
+        tools:context=".android.ui.screen.main.MainActivity">
 
         <TextView
             android:id="@+id/title"

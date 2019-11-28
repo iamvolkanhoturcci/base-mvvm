@@ -1,23 +1,27 @@
-package com.volkanhotur.basemvvm.android.ui.main;
+package com.volkanhotur.basemvvm.android.ui.screen.main;
 
 import com.volkanhotur.basemvvm.android.data.domain.BaseUseCase;
 import com.volkanhotur.basemvvm.android.data.repository.ApiDataSource;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.functions.Function;
 import okhttp3.ResponseBody;
 
 /**
  * @author volkanhotur
  */
 
-public class InformationBaseUseCase extends BaseUseCase<ResponseBody> {
+public class InformationUseCase extends BaseUseCase<ResponseBody> {
 
     @Inject
-    public InformationBaseUseCase(ApiDataSource apiDataSource) {
+    public InformationUseCase(ApiDataSource apiDataSource) {
         super(apiDataSource);
     }
 

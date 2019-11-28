@@ -1,4 +1,4 @@
-package com.volkanhotur.basemvvm.android.ui.main;
+package com.volkanhotur.basemvvm.android.ui.screen.main;
 
 import android.app.Dialog;
 import android.os.Bundle;

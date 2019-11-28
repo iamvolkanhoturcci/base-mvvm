@@ -19,7 +19,7 @@ public abstract class AbstractUseCase<T, P> {
 
     public abstract Observable<T> buildUseCaseObservable(@Nullable P params);
 
-    public Disposable execute(AbstractObserver<T> observer, @Nullable P params) {
+    public void execute(AbstractObserver<T> observer, @Nullable P params) {
 
         this.disposableObserver = observer;
 
@@ -30,7 +30,6 @@ public abstract class AbstractUseCase<T, P> {
 
         usaCaseDisposable = observable.subscribeWith(disposableObserver);
 
-        return usaCaseDisposable;
     }
 
     public void dispose() {
