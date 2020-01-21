@@ -13,7 +13,6 @@ import javax.inject.Singleton;
 /**
  * @author volkanhotur
  */
-
 @Singleton
 public class ViewModelFactory implements ViewModelProvider.Factory {
 
