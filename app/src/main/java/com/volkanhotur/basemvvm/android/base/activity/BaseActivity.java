@@ -37,6 +37,6 @@ public abstract class BaseActivity<VM extends ViewModel, VDB extends ViewDataBin
 
     @Override
     public boolean isLoadingBarEnabled() {
-        return false;
+        return true;
     }
 }
