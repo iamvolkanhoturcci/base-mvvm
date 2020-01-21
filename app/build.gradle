@@ -1,5 +1,11 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
@@ -10,10 +16,12 @@ android {
 
     defaultConfig {
         applicationId "com.volkanhotur.basemvvm"
+
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode versions.versionCode
         versionName versions.versionName
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -32,15 +40,6 @@ android {
         }
     }
 
-    dataBinding {
-        enabled true
-    }
-
-    compileOptions {
-        sourceCompatibility versions.sourceCompat
-        targetCompatibility versions.targetCompat
-    }
-
     packagingOptions {
         exclude 'META-INF/proguard/androidx-annotations.pro'
     }
@@ -51,21 +50,36 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled true
+    }
+
+    compileOptions {
+        sourceCompatibility versions.sourceCompat
+        targetCompatibility versions.targetCompat
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':core')
 
+    //Kotlin Configurations
+    implementation deps.kotlin.kotlinStdlib
+    implementation deps.kotlin.kotlinCore
+    implementation deps.kotlin.kotlinLifecycle
+
+    //Additional Dependencies
     implementation deps.additional.timber
     implementation deps.additional.fragNavigation
     implementation deps.additional.swipeLayout
     implementation deps.additional.alerty
 
-    implementation deps.google.dagger
+    //Dagger DI Dependencies
     implementation deps.google.daggerSupport
-    annotationProcessor deps.google.daggerProcessor
-    annotationProcessor deps.google.daggerProcessorSupport
+    kapt deps.google.daggerProcessor
+    kapt deps.google.daggerCompiler
 
     //Other dependencies are located inside Core Module and Domain Module
 }

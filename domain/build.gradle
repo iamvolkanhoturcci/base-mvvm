@@ -1,12 +1,20 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion versions.compileSdk
+
     defaultConfig {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode versions.versionCode
         versionName versions.versionName
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -24,6 +32,11 @@ android {
 }
 
 dependencies {
+    //Kotlin Configurations
+    api deps.kotlin.kotlinStdlib
+    api deps.kotlin.kotlinCore
+
+    //RX and Network Dependencies
     api deps.reactivex.rxJava
     api deps.reactivex.rxAndroid
     api deps.google.gson
@@ -32,4 +45,7 @@ dependencies {
     api deps.square.okhttpLoggingInterceptor
     api deps.square.gsonConverter
     api deps.square.retrofitRxAdapter
+}
+repositories {
+    mavenCentral()
 }

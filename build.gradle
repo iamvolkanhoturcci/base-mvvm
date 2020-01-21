@@ -1,14 +1,16 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '13.1.10'
-
     ext.versions = [
             'minSdk' : 23,
             'compileSdk' : 28,
             'targetSdk' : 28,
             'versionCode' : 1,
             'versionName' : '1.0.0',
+
+            'kotlinVersion' : '1.3.61',
+            'kotlinCore' : '1.1.0',
+            'kotlinLifecycle': '2.1.0',
 
             'lifecycle' : '2.0.0',
             'room' : '2.1.0',
@@ -24,7 +26,7 @@ buildscript {
             'rxJava' : '2.2.9',
             'rxAndroid' : '2.1.1',
 
-            'dagger' : '2.23.1',
+            'dagger' : '2.23.2',
             'gson' : '2.8.5',
 
             'retrofit' : '2.6.0',
@@ -34,7 +36,6 @@ buildscript {
             'okhttpDownloader' : '1.1.0',
 
             'stetho' : '1.5.1',
-
             'glide' : '4.9.0',
             'glideCompiler' : '4.9.0',
             'swipeLayout' : '1.2.0',
@@ -55,7 +56,7 @@ buildscript {
     ]
 
     ext.deps = [
-            android   : [
+            android : [
                     'lifecycleExt' : "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}",
                     'lifecycleCompiler' : "androidx.lifecycle:lifecycle-compiler:${versions.lifecycle}",
                     'lifecycleCommon' : "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycle}",
@@ -64,13 +65,19 @@ buildscript {
                     'security' : "androidx.security:security-crypto:${versions.security}"
             ],
 
-            support   : [
+            kotlin : [
+                    'kotlinStdlib' : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlinVersion}",
+                    'kotlinCore' : "androidx.core:core-ktx:${versions.kotlinCore}",
+                    'kotlinLifecycle' : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.kotlinLifecycle}"
+            ],
+
+            support : [
                     'appCompat' : "androidx.appcompat:appcompat:${versions.appCompat}",
                     'recyclerView' : "androidx.recyclerview:recyclerview:${versions.recyclerView}",
                     'cardView' : "androidx.cardview:cardview:${versions.cardView}",
                     'constraintLayout' : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
                     'legacy' : "androidx.legacy:legacy-support-v4:${versions.legacy}",
-                    'designSupport' : "com.google.android.material:material:${versions.materialDesign}",
+                    'designSupport' : "com.google.android.material:material:${versions.materialDesign}"
             ],
 
             reactivex : [
@@ -78,24 +85,23 @@ buildscript {
                     'rxAndroid' : "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
             ],
 
-            google    : [
-                    'dagger' : "com.google.dagger:dagger-android:${versions.dagger}",
+            google : [
                     'daggerSupport' : "com.google.dagger:dagger-android-support:${versions.dagger}",
                     'daggerProcessor' : "com.google.dagger:dagger-android-processor:${versions.dagger}",
-                    'daggerProcessorSupport' : "com.google.dagger:dagger-compiler:${versions.dagger}",
-                    'gson' : "com.google.code.gson:gson:${versions.gson}",
+                    'daggerCompiler' : "com.google.dagger:dagger-compiler:${versions.dagger}",
+                    'gson' : "com.google.code.gson:gson:${versions.gson}"
             ],
 
-            square    : [
+            square : [
                     'retrofit' : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
                     'gsonConverter' : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
                     'okhttp' : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
                     'okhttpLoggingInterceptor' : "com.squareup.okhttp3:logging-interceptor:${versions.okhttpLoggingInterceptor}",
                     'okhttpDownloader' : "com.jakewharton.picasso:picasso2-okhttp3-downloader:${versions.okhttpDownloader}",
-                    'retrofitRxAdapter' : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofitRxAdapter}",
+                    'retrofitRxAdapter' : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofitRxAdapter}"
             ],
 
-            facebook  : [
+            facebook : [
                     'stetho' : "com.facebook.stetho:stetho:${versions.stetho}",
                     'networkInterceptor' : "com.facebook.stetho:stetho-okhttp3:${versions.stetho}"
             ],
@@ -109,18 +115,18 @@ buildscript {
                     'alerty' : "com.github.volkanhotur-cci:Alerty:${versions.alerty}"
             ],
 
-            permission: [
+            permission : [
                     'permissionDispatcher' : "com.github.hotchemi:permissionsdispatcher:${versions.permssionDispatcher}",
                     'permissionDispatcherCompiler': "com.github.hotchemi:permissionsdispatcher-processor:${versions.permssionDispatcherCompiler}"
             ],
 
-            test      : [
+            test : [
                     'junit' : "junit:junit:${versions.junit}",
                     'atslRunner' : "androidx.test:runner:${versions.atsl}",
                     'atslRules' : "androidx.test:rules:${versions.atsl}",
                     'mockitoKotlin' : "com.nhaarman:mockito-kotlin:${versions.mockitoKotlin}",
                     'robolectric' : "org.robolectric:robolectric:${versions.robolectric}",
-                    'mockWebServer' : "com.squareup.okhttp3:mockwebserver:${versions.okhttp}",
+                    'mockWebServer' : "com.squareup.okhttp3:mockwebserver:${versions.okhttp}"
             ]
     ]
 
@@ -130,7 +136,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.2'
+        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlinVersion}"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

@@ -1,12 +1,20 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion versions.compileSdk
+
     defaultConfig {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode versions.versionCode
         versionName versions.versionName
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -31,6 +39,12 @@ dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
     api project(':domain')
 
+    //Kotlin Configurations
+    api deps.kotlin.kotlinStdlib
+    api deps.kotlin.kotlinCore
+    api deps.kotlin.kotlinLifecycle
+
+    //Android Support Library Dependencies
     api deps.support.appCompat
     api deps.support.recyclerView
     api deps.support.cardView
@@ -38,14 +52,16 @@ dependencies {
     api deps.support.constraintLayout
     api deps.support.designSupport
 
+    //Additional Dependencies
     api deps.additional.glide
     annotationProcessor deps.additional.glideCompiler
 
-    api deps.google.dagger
-    api deps.google.daggerSupport
-    annotationProcessor deps.google.daggerProcessor
-    annotationProcessor deps.google.daggerProcessorSupport
+    //Dagger DI Dependencies
+    implementation deps.google.daggerSupport
+    kapt deps.google.daggerProcessor
+    kapt deps.google.daggerCompiler
 
+    //Android Arch Dependencies
     api deps.android.security
     api deps.android.lifecycleExt
     api deps.android.lifecycleCommon
@@ -53,6 +69,11 @@ dependencies {
     api deps.android.roomRuntime
     annotationProcessor deps.android.roomRuntime
 
+    //Additional Dependencies
     api deps.permission.permissionDispatcher
     annotationProcessor deps.permission.permissionDispatcherCompiler
+
+}
+repositories {
+    mavenCentral()
 }
