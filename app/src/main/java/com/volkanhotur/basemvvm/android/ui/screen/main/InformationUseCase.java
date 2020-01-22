@@ -3,6 +3,7 @@ package com.volkanhotur.basemvvm.android.ui.screen.main;
 import com.volkanhotur.basemvvm.android.data.domain.BaseUseCase;
 import com.volkanhotur.basemvvm.android.data.repository.ApiDataSource;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -25,8 +26,9 @@ public class InformationUseCase extends BaseUseCase<ResponseBody> {
         super(apiDataSource);
     }
 
+    @NotNull
     @Override
     public Observable<ResponseBody> buildUseCaseObservable(HashMap<String, Object> params) {
-        return apiDataSource.getRequest("users/JakeWharton");
+        return getApiDataSource().getRequest("users/JakeWharton");
     }
 }

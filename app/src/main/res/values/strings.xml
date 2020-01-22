@@ -1,2 +1,4 @@
 <resources>
+    <!-- Generic Error Messages -->
+    <string name="unknown_error">We are unable to process at this time. Please try again later.</string>
 </resources>
