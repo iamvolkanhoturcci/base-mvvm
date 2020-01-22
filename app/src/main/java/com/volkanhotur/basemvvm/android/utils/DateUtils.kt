@@ -28,27 +28,4 @@ object DateUtils {
 
         return null
     }
-
-
-    private fun isDateComponentEqualToDate(date1: Date?, date2: Date?): Boolean {
-        val calendar = Calendar.getInstance()
-
-        calendar.time = date1
-
-        val year1 = calendar[Calendar.YEAR]
-
-        val month1 = calendar[Calendar.MONTH]
-
-        val day1 = calendar[Calendar.DATE]
-
-        calendar.time = date2
-
-        val year2 = calendar[Calendar.YEAR]
-
-        val month2 = calendar[Calendar.MONTH]
-
-        val day2 = calendar[Calendar.DATE]
-
-        return year1 == year2 && month1 == month2 && day1 == day2
-    }
 }

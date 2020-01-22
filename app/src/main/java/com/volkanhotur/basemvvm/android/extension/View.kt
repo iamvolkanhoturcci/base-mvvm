@@ -5,7 +5,6 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.util.DisplayMetrics
 import android.view.View
-import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.animation.Animation.RELATIVE_TO_SELF
 import android.view.animation.ScaleAnimation

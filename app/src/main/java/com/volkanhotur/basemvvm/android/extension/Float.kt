@@ -1,6 +1,5 @@
 package com.volkanhotur.basemvvm.android.extension
 
-import android.content.Context
 import android.content.res.Resources
 import kotlin.math.roundToInt
 
