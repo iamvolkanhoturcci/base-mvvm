@@ -29,7 +29,6 @@ public class SingleLiveEvent<T> extends MutableLiveData<T> {
             Timber.tag(TAG).w("Multiple observers registered but only one will be notified of changes.");
         }
 
-        // Observe the internal MutableLiveData
         super.observe(owner, t -> {
             if (mPending.compareAndSet(true, false)) {
                 observer.onChanged(t);
@@ -44,9 +43,6 @@ public class SingleLiveEvent<T> extends MutableLiveData<T> {
         super.setValue(t);
     }
 
-    /**
-     * Used for cases where T is Void, to make calls cleaner.
-     */
     @MainThread
     public void call() {
         setValue(null);
