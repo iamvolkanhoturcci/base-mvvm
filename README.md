@@ -1,2 +1,2 @@
 # base-mvvm
-Base Android Structure with MVVM and Architecture Components
+Base Android Structure with Kotlin - MVVM - Dagger 2 and Android Architecture Components.
