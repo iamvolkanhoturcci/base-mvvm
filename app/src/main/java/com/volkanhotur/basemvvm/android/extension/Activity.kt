@@ -7,6 +7,9 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
 import com.volkanhotur.alerty.Alerty
 import com.volkanhotur.basemvvm.R
 import com.volkanhotur.basemvvm.android.utils.impl.DialogChoiceListener
@@ -18,6 +21,14 @@ fun Activity.hideSoftKeyboard() {
         inputMethodManager.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
     }
 }
+
+fun Activity?.toastLong(text: CharSequence, duration: Int = Toast.LENGTH_LONG) = this?.let { Toast.makeText(this, text, duration).show() }
+
+fun Activity?.toastLong(@StringRes textId: Int, duration: Int = Toast.LENGTH_LONG) = this?.let { Toast.makeText(this, textId, duration).show() }
+
+fun Activity?.toastShort(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) = this?.let { Toast.makeText(this, text, duration).show() }
+
+fun Activity?.toastShort(@StringRes textId: Int, duration: Int = Toast.LENGTH_LONG) = this?.let { Toast.makeText(this, textId, duration).show() }
 
 fun Activity.showInfoDialog(title: String?, message: String?, positiveText: String?) {
     Alerty.Builder(this)
