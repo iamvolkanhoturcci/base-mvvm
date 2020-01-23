@@ -6,7 +6,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import com.core.abstractbase.AbstractActivity
 import com.volkanhotur.basemvvm.android.base.exception.UnCaughtExceptionHandler
-import com.volkanhotur.basemvvm.android.extension.showChoiceDialog
 import com.volkanhotur.basemvvm.android.utils.helper.LocaleHelper
 import com.volkanhotur.basemvvm.android.utils.impl.DefaultClickHandler
 
