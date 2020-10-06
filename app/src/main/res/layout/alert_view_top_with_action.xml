@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/extraLargeMargin"
+    android:layout_marginStart="@dimen/mediumMargin"
+    android:layout_marginEnd="@dimen/mediumMargin"
+    android:background="@drawable/bg_alert_view_top"
+    android:padding="@dimen/mediumMargin"
+    android:elevation="@dimen/miniMargin">
+
+    <ImageView
+        android:id="@+id/image_view_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cancel_circle_small"
+        android:contentDescription="@string/image_view"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_view_info"
+        android:textColor="@color/white"
+        android:textSize="@dimen/mediumTextSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:ellipsize="marquee"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.85"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:textColor="@color/white"
+        android:textSize="@dimen/mediumTextSize"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/done"
+        android:gravity="center_vertical|end"
+        android:layout_marginTop="@dimen/smallMargin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_info" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

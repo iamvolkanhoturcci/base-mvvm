@@ -13,7 +13,7 @@ interface AbstractView {
 
     val isLoadingBarEnabled: Boolean
 
-    fun expireSession()
+    fun expireSession(errorTitle : String?, errorMessage: String?)
 
     fun navigateView()
 

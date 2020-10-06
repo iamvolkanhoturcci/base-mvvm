@@ -19,7 +19,7 @@ import javax.inject.Inject
  * @author volkanhotur
  */
 @Suppress("UNCHECKED_CAST")
-abstract class AbstractActivity<VM : ViewModel?, VDB : ViewDataBinding?> : DaggerAppCompatActivity(), AbstractView, LifecycleOwner {
+abstract class AbstractActivity<VM : ViewModel, VDB : ViewDataBinding> : DaggerAppCompatActivity(), AbstractView, LifecycleOwner {
 
     @JvmField
     @Inject
@@ -27,9 +27,9 @@ abstract class AbstractActivity<VM : ViewModel?, VDB : ViewDataBinding?> : Dagge
 
     private var dialog: AlertDialog? = null
 
-    private var viewModel: ViewModel? = null
+    private var viewModel: VM? = null
 
-    private var binding: ViewDataBinding? = null
+    private var binding: VDB? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,10 +38,9 @@ abstract class AbstractActivity<VM : ViewModel?, VDB : ViewDataBinding?> : Dagge
 
         binding?.lifecycleOwner = this
 
-        viewModel = ViewModelProviders
-                .of(this, viewModelFactory)[viewModelClass!!]
+        viewModel = ViewModelProviders.of(this, viewModelFactory)[viewModelClass!!]
 
-        onInitialized(savedInstanceState, viewModel as VM, binding as VDB?)
+        onInitialized(savedInstanceState, viewModel, binding)
     }
 
     protected abstract val viewModelClass: Class<VM>?
@@ -54,15 +53,17 @@ abstract class AbstractActivity<VM : ViewModel?, VDB : ViewDataBinding?> : Dagge
     override fun showLoadingBar() {
         context()?.let {
             dialog?.let {
-                if(!dialog!!.isShowing){
-                    dialog!!.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-                    dialog!!.show()
+                if(!it.isShowing){
+                    it.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                    it.show()
                 }
             }.run {
                 dialog = AlertDialog.Builder(it, R.style.DialogStyle)
                         .setView(R.layout.view_progress)
                         .setCancelable(false)
                         .create()
+                dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                dialog?.show()
             }
         }
     }
@@ -73,5 +74,13 @@ abstract class AbstractActivity<VM : ViewModel?, VDB : ViewDataBinding?> : Dagge
 
     override fun context(): Context? {
         return this
+    }
+
+    protected fun getBinding () : VDB?  {
+        return binding
+    }
+
+    protected fun getViewModel () : VM?  {
+        return viewModel
     }
 }

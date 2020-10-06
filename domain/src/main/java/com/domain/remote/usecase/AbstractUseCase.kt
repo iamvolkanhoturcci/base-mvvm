@@ -4,6 +4,7 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import java.util.*
 
 /**
  * @author volkanhotur
@@ -14,15 +15,15 @@ abstract class AbstractUseCase<T, P> {
 
     private var disposableObserver: AbstractObserver<T>? = null
 
-    abstract fun buildUseCaseObservable(params: P?): Observable<T>
+    abstract fun buildUseCaseObservable(any: Any?, params: P?): Observable<T>
 
-    fun execute(observer: AbstractObserver<T>?, params: P?) {
+    fun execute(observer: AbstractObserver<T>?, any: Any?, params: P?) {
         disposableObserver = observer
 
-        val observable = buildUseCaseObservable(params)
-                .subscribeOn(Schedulers.newThread())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        val observable = buildUseCaseObservable(any, params)
+            .subscribeOn(Schedulers.newThread())
+            .unsubscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
 
         usaCaseDisposable = observable.subscribeWith(disposableObserver)
     }

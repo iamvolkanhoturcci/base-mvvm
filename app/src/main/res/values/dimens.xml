@@ -4,6 +4,12 @@
     <dimen name="default_item_divider_width">8dp</dimen>
     <dimen name="default_item_radius">8dp</dimen>
 
+    <dimen name="default_material_dialog_radius">8dp</dimen>
+
+    <dimen name="default_alert_radius">8dp</dimen>
+    <dimen name="default_button_radius">32dp</dimen>
+    <dimen name="default_input_layout_radius">64dp</dimen>
+
     <dimen name="defaultMargin">2dp</dimen>
     <dimen name="miniMargin">4dp</dimen>
     <dimen name="smallMargin">8dp</dimen>
@@ -12,6 +18,8 @@
     <dimen name="extraLargeMargin">32dp</dimen>
     <dimen name="bigMargin">40dp</dimen>
     <dimen name="customBigMargin">50dp</dimen>
+    
+    <dimen name="appTitleMargin">40dp</dimen>
 
     <dimen name="extraMiniTextSize">10sp</dimen>
     <dimen name="miniTextSize">11sp</dimen>
@@ -22,4 +30,6 @@
     <dimen name="extraLargeTextSize">20sp</dimen>
     <dimen name="xxLargeTextSize">22sp</dimen>
     <dimen name="bigTextSize">24sp</dimen>
+
+    <dimen name="specialTextSize">32sp</dimen>
 </resources>

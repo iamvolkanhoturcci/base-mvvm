@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Volkan1"
+        android:id="@+id/bottom_nav_special"
+        android:icon="@drawable/ic_tab_icon_home"/>
+
+    <item android:title="Volkan2"
+        android:id="@+id/bottom_nav_red_box"
+        android:icon="@drawable/ic_tab_icon_home"/>
+
+    <item android:title="Volkan3"
+        android:id="@+id/bottom_nav_order"
+        android:icon="@drawable/ic_tab_icon_home"/>
+
+    <item android:title="Volkan4"
+        android:id="@+id/bottom_nav_training"
+        android:icon="@drawable/ic_tab_icon_profile"/>
+
+    <item android:title="Volkan5"
+        android:id="@+id/bottom_nav_profile"
+        android:icon="@drawable/ic_tab_icon_profile"/>
+</menu>

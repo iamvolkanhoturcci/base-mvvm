@@ -16,10 +16,10 @@ import dagger.android.support.DaggerFragment
 /**
  * @author volkanhotur
  */
-@Suppress("UNCHECKED_CAST")
-abstract class AbstractBindingFragment<VDB : ViewDataBinding?> : DaggerFragment(), AbstractView {
 
-    private var binding: ViewDataBinding? = null
+abstract class AbstractBindingFragment<VDB : ViewDataBinding> : DaggerFragment(), AbstractView {
+
+    private var binding: VDB? = null
 
     private var dialog: AlertDialog? = null
 
@@ -32,27 +32,30 @@ abstract class AbstractBindingFragment<VDB : ViewDataBinding?> : DaggerFragment(
 
         binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
 
-        onInitialized(savedInstanceState, binding as VDB?)
+        onInitialized(savedInstanceState, binding)
 
         return binding?.root
     }
 
     protected abstract fun onInitialized(savedInstanceState: Bundle?, binding: VDB?)
+
     @get:LayoutRes
     protected abstract val layoutResId: Int
 
     override fun showLoadingBar() {
         context()?.let {
             dialog?.let {
-                if(!dialog!!.isShowing){
-                    dialog!!.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-                    dialog!!.show()
+                if(!it.isShowing){
+                    it.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                    it.show()
                 }
             }.run {
                 dialog = AlertDialog.Builder(it, R.style.DialogStyle)
-                        .setView(R.layout.view_progress)
-                        .setCancelable(false)
-                        .create()
+                    .setView(R.layout.view_progress)
+                    .setCancelable(false)
+                    .create()
+                dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                dialog?.show()
             }
         }
     }
@@ -65,4 +68,7 @@ abstract class AbstractBindingFragment<VDB : ViewDataBinding?> : DaggerFragment(
         return context
     }
 
+    protected fun getBinding () : VDB?  {
+        return binding
+    }
 }

@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 
-apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
@@ -54,7 +54,8 @@ dependencies {
 
     //Additional Dependencies
     api deps.additional.glide
-    annotationProcessor deps.additional.glideCompiler
+    kapt deps.additional.glideCompiler
+    implementation deps.additional.spinKit
 
     //Dagger DI Dependencies
     implementation deps.google.daggerSupport
@@ -62,16 +63,15 @@ dependencies {
     kapt deps.google.daggerCompiler
 
     //Android Arch Dependencies
-    api deps.android.security
     api deps.android.lifecycleExt
     api deps.android.lifecycleCommon
-    annotationProcessor deps.android.lifecycleCompiler
+    kapt deps.android.lifecycleCompiler
     api deps.android.roomRuntime
-    annotationProcessor deps.android.roomRuntime
+    kapt deps.android.roomRuntime
 
     //Additional Dependencies
     api deps.permission.permissionDispatcher
-    annotationProcessor deps.permission.permissionDispatcherCompiler
+    kapt deps.permission.permissionDispatcherCompiler
 
 }
 repositories {

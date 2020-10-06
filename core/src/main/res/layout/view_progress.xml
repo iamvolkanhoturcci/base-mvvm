@@ -5,19 +5,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center">
     <androidx.cardview.widget.CardView
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        app:cardBackgroundColor="#626262"
-        app:cardElevation="6dp"
-        app:cardCornerRadius="4dp"
-        app:cardUseCompatPadding="true">
-        <ProgressBar
-            android:id="@+id/progress_circular"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+        app:cardBackgroundColor="#DB4947"
+        app:cardElevation="64dp"
+        app:cardCornerRadius="4dp">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/progress_bar"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:padding="12dp"
+            style="@style/SpinKitView.Circle"
+            app:SpinKit_Color="@color/white" />
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

@@ -21,7 +21,9 @@ import javax.inject.Inject
  * @author volkanhotur
  */
 @Suppress("UNCHECKED_CAST")
-abstract class AbstractBottomSheetDialog<VM : ViewModel?, VDB : ViewDataBinding?> : DaggerBottomSheetFragment(), AbstractView {
+abstract class AbstractBottomSheetDialog<VM : ViewModel, VDB : ViewDataBinding> : DaggerBottomSheetFragment(), AbstractView {
+
+    private var binding: VDB? = null
 
     private var dialog: AlertDialog? = null
 
@@ -35,14 +37,14 @@ abstract class AbstractBottomSheetDialog<VM : ViewModel?, VDB : ViewDataBinding?
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding = DataBindingUtil.inflate<ViewDataBinding>(inflater, layoutResId, container, false)
+        binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
 
         val viewModel: VM = ViewModelProviders
                 .of(this, viewModelFactory)
                 .get(viewModel!!)
-        onInitialized(savedInstanceState, viewModel as VM, binding as VDB)
+        onInitialized(savedInstanceState, viewModel, binding)
 
-        return binding.root
+        return binding?.root
     }
 
     protected abstract val viewModel: Class<VM>?
@@ -50,24 +52,26 @@ abstract class AbstractBottomSheetDialog<VM : ViewModel?, VDB : ViewDataBinding?
     @get:LayoutRes
     protected abstract val layoutResId: Int
 
-    protected abstract fun onInitialized(savedInstanceState: Bundle?, viewModel: VM, binding: VDB)
+    protected abstract fun onInitialized(savedInstanceState: Bundle?, viewModel: VM?, binding: VDB?)
 
-    override fun getContext(): Context? {
-        return activity
+    override fun context(): Context? {
+        return context
     }
 
     override fun showLoadingBar() {
         context()?.let {
             dialog?.let {
-                if(!dialog!!.isShowing){
-                    dialog!!.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-                    dialog!!.show()
+                if(!it.isShowing){
+                    it.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                    it.show()
                 }
             }.run {
                 dialog = AlertDialog.Builder(it, R.style.DialogStyle)
-                        .setView(R.layout.view_progress)
-                        .setCancelable(false)
-                        .create()
+                    .setView(R.layout.view_progress)
+                    .setCancelable(false)
+                    .create()
+                dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                dialog?.show()
             }
         }
     }

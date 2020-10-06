@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
@@ -25,25 +25,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    flavorDimensions "version"
-    productFlavors{
-        alfa {
-            applicationIdSuffix ".android"
-            resValue "string", "app_name", "BaseMVVM"
-            buildConfigField "String", "FLAVOR_TYPE", '"PROD"'
-        }
-
-        beta {
-            applicationIdSuffix ".android.test"
-            resValue "string", "app_name", "BaseMVVM Test"
-            buildConfigField "String", "FLAVOR_TYPE", '"TEST"'
-        }
-    }
-
-    packagingOptions {
-        exclude 'META-INF/proguard/androidx-annotations.pro'
-    }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -51,8 +32,34 @@ android {
         }
     }
 
+    flavorDimensions "version"
+    productFlavors {
+        prod {
+            dimension "version"
+            resValue "string", "app_name", '"Base Mvvm"'
+
+            buildConfigField "String", "FLAVOR_TYPE", '"PROD"'
+        }
+
+        qa {
+            dimension "version"
+            resValue "string", "app_name", '"Base Mvvm Test"'
+            applicationIdSuffix ".test"
+
+            buildConfigField "String", "FLAVOR_TYPE", '"QA"'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+
     dataBinding {
         enabled true
+    }
+
+    lintOptions {
+        abortOnError false
     }
 
     compileOptions {
@@ -74,10 +81,15 @@ dependencies {
     implementation deps.additional.timber
     implementation deps.additional.fragNavigation
     implementation deps.additional.swipeLayout
-    implementation deps.additional.alerty
+    implementation deps.additional.spinKit
+    implementation deps.additional.materialDialog
+    implementation deps.additional.bottomSheetDialog
+    implementation deps.additional.sneaker
 
     //Dagger DI Dependencies
     implementation deps.google.daggerSupport
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     kapt deps.google.daggerProcessor
     kapt deps.google.daggerCompiler
 

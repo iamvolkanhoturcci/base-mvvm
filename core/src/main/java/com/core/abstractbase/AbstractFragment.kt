@@ -22,14 +22,14 @@ import javax.inject.Inject
  * @author volkanhotur
  */
 @Suppress("UNCHECKED_CAST")
-abstract class AbstractFragment<VM : ViewModel?, VDB : ViewDataBinding?> : DaggerFragment(), AbstractView {
+abstract class AbstractFragment<VM : ViewModel, VDB : ViewDataBinding> : DaggerFragment(), AbstractView {
     @JvmField
     @Inject
     var viewModelFactory: ViewModelProvider.Factory? = null
 
-    private var binding: ViewDataBinding? = null
+    private var binding: VDB? = null
 
-    private var viewModel: ViewModel? = null
+    private var viewModel: VM? = null
 
     private var dialog: AlertDialog? = null
 
@@ -46,7 +46,7 @@ abstract class AbstractFragment<VM : ViewModel?, VDB : ViewDataBinding?> : Dagge
         viewModel = ViewModelProviders
                 .of(activity!!, viewModelFactory)[viewModelClass!!]
 
-        onInitialized(savedInstanceState, viewModel as VM, binding as VDB?)
+        onInitialized(savedInstanceState, viewModel as VM, binding)
 
         return binding?.root
     }
@@ -65,26 +65,35 @@ abstract class AbstractFragment<VM : ViewModel?, VDB : ViewDataBinding?> : Dagge
     override fun showLoadingBar() {
         context()?.let {
             dialog?.let {
-                if(!dialog!!.isShowing){
-                    dialog!!.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-                    dialog!!.show()
+                if(!it.isShowing){
+                    it.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                    it.show()
                 }
             }.run {
                 dialog = AlertDialog.Builder(it, R.style.DialogStyle)
-                        .setView(R.layout.view_progress)
-                        .setCancelable(false)
-                        .create()
+                    .setView(R.layout.view_progress)
+                    .setCancelable(false)
+                    .create()
+                dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                dialog?.show()
             }
         }
     }
-
     override fun hideLoadingBar() {
         dialog?.dismiss()
     }
 
-    override fun expireSession() {}
+    override fun expireSession(errorTitle : String?, errorMessage: String?) {}
 
     override fun context(): Context? {
         return context
+    }
+
+    protected fun getBinding () : VDB?  {
+        return binding
+    }
+
+    protected fun getViewModel () : VM?  {
+        return viewModel
     }
 }
