@@ -1,8 +1,8 @@
-# CCINext Android side project with Kotlin
+# Kotlin Android side project with Kotlin
 
-This is a side project for CCINext Android. And it presents a modern approach to Android application development using Kotlin and the latest tech-stack.
+This is a side project for Kotlin Android. And it presents a modern approach to Android application development using Kotlin and the latest tech-stack.
 
-The goal of the project is to recreating CCINext Android with best practices, provide a set of guidelines, and present modern Android architecture that is modular, scalable, maintainable, and testable.
+The goal of the project is to recreating Kotlin Android with best practices, provide a set of guidelines, and present modern Android architecture that is modular, scalable, maintainable, and testable.
 
 
 # Design
